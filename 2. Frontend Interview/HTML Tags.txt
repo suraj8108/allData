@@ -1,0 +1,70 @@
+
+HTML Tags
+	
+	-> HTML Tag
+	
+	-> Head Tag
+		
+		-> Title tag
+		
+		-> Meta tag
+			-> Different types of Meta tags we have.
+				-> <meta charset="UTF-8"> 							: Used to allow copying the content on html page like emoji and all.
+				-> <meta name="keywords" content="HTML, web">		: 
+				-> <meta name="description" content="HTML, web">	:
+				-> <meta name="referesh" content="30"> 				: Refresh the page after every 30seconds.
+				-> <meta name="viewport" 							: This meta tag is specific to the mobile device where we want to zoom in the page when our html page
+					content="width=device-width", initial-scale:2.0">	loads.
+				-> 
+		
+		-> Link tag
+		-> Style Tag
+		-> Script Tag
+		
+	-> Body Tag
+		
+
+HTML Semantic
+	-> In HTML, semantics refers to the use of HTML tags that convey the meaning and structure of the content they enclose. 
+	-> Semantic HTML elements clearly describe their purpose both to the browser and the developer, making the code more readable and accessible.
+	
+	-> Key Points of HTML Semantic
+		1. Improved Accessibility: Help screen readers and other assistive technologies understant the structure and meaning of web content. Helps disable people.
+		2. Better SEO
+		3. Enhanced Readability
+		4. Standardization
+		
+	Eg:
+		-> Header Tag
+		-> nav Tags
+		-> section Tag
+		-> aside Tag
+		-> footer Tag
+		-> summary Tag
+		-> details Tag
+
+Form Tag
+	attributes:
+		-> action
+		-> method
+		-> accept-charset
+		-> autocomplete
+	
+Input Tag
+	attributes
+		-> type:
+		-> value
+		
+Interview Questions:
+
+	1. HTML stands for HyperText Markup Language.
+	2. It is a standard text formatting language used for developing web pages
+	3. The latest version of HTML is HTML5.
+	4. There are two main components in HTML language, Tags and Attributes.
+
+Interview HTML Questions
+	https://www.interviewbit.com/html-interview-questions/
+
+	
+	
+	

@@ -1,0 +1,19 @@
+{
+  "contacts": [
+    {
+      "id": "11432fe5-8153-4c70-8ee3-2bf1e6f918e7",
+      "name": "Suraj",
+      "email": "suraj@gmail.com"
+    },
+    {
+      "id": "10ed8e83-3afd-4b7c-8413-b92762566529",
+      "name": "Anand",
+      "email": "anand@gmail.com"
+    },
+    {
+      "id": "83ee14e3-5a1c-4bcb-98b8-af7bcd38a528",
+      "name": "SurajRamashish",
+      "email": "surajram@gmail.com"
+    }
+  ]
+}

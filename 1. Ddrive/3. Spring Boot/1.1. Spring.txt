@@ -1,0 +1,109 @@
+
+Spring Topics
+	https://www.javatpoint.com/spring-boot-tutorial
+	https://www.geeksforgeeks.org/spring/
+
+Interview Questions:
+	https://www.geeksforgeeks.org/spring-interview-questions/
+
+
+Spring Framework
+	* 	Framework uses
+			-> Aspect-Oriented Programming (AOP)
+			-> Plain Old Java Object (POJO)
+			-> Inversion of Control (IoC) 
+			-> Dependency Injection (DI)
+			
+	*	Key Features of Spring Include
+			Spring ORM				- Database Management
+			Spring MVC 				- for web development.
+			Spring Boot 			- Rapid Application Development.
+			Spring Security 		-  Authentication and Authorization.
+			Spring Data 			- Database Interaction
+			Spring Cloud 			- Building Microservices
+	
+	* Spring is an opensource Java based framework, used to develop enterprise level application.
+
+Features of Spring:
+	* IoC container:
+		-> 	Inversion of Control (IoC) is a design principle where the control of object creation and dependency management is transferred 
+			from the application code to a container or framework. 
+		-> 	This helps in creating loosely coupled and easily testable code.
+		
+	* Data access framework
+		-> Handles interaction with a database connection, transaction management and also deals with exceptions.
+	
+	* Spring MVC framework
+	
+	* Transaction management
+	
+	* Spring Web Service
+
+Advantages of Spring:
+	* Modular: It follows modular approach. Even though there are multiple packages but we can ignore and keep the one we required.
+	* Light weight
+	* Web MVC
+	* Testability
+	* Integration with Existing Frameworks
+	* Predefined Templates
+	* Loose Coupling
+	* Fast Development
+	* Powerful abstraction
+	* Transaction Management
+	
+Use of Spring Frameowrk:
+	-> Dependecy Injection approach is used.
+	-> Powerful database transaction management capabilities
+	-> Simplifies integration between JPA/Hibernate ORM etc.
+	-> Reduces cost and time for development.
+
+Trends in Spring:
+	-> Handling realtime and large scale data streams.
+	-> AI and Machine Learning Integration
+
+Spring Framework Architecture
+	-> It is categorized in to four different areas:
+		1. Core Container
+			=> 	Includes IOC and Application Context
+			=> 	Modules
+				* Spring Core: Includes IOC and DI. Handles creating and managing instance of Java Beans.
+				* Spring Beans: Handles the lifecycle of the bean.
+				* Spring Context: Provided application context.
+				
+		2. Data Access/Integration
+			* Spring JDBC: Handles database transaction.
+			* Spring ORM: Integration with Object-Relational Mapping (ORM) frameworks, such as Hibernate and JPA.
+			* Spring Data: CRUD operations.
+			
+		3. Web
+			* Spring MVC
+			* Spring Web Services
+
+		4. Miscellaneous
+			* Spring Security
+			* Spring Cloud
+
+
+------------------------------
+Spring DAO vs Spring ORM vs Spring JDBC
+	
+	Spring DAO
+		=> It  is a design pattern that provides a way to separate the data access logic from the business logic. 
+		=> It helps in managing the data access layer of an application in a consistent way.
+		
+		=> To abstract and encapsulate all access to the data source.
+		=> It can work with various data access technologies like JDBC, Hibernate, JPA, etc.
+		=> @Repository
+		
+	Spring JDBC
+		=> It is a module in the Spring Framework that simplifies the use of JDBC (Java Database Connectivity) to interact with relational databases.
+		
+		=> To reduce the boilerplate code required for JDBC operations like opening/closing connections, handling exceptions, etc.
+		=> It provides a JdbcTemplate class that simplifies database interactions.
+		
+		
+	Spring ORM (Object-Relational Mapping)
+		=> It is a module that provides integration with popular ORM frameworks like Hibernate, JPA, and JDO.
+		=> @Entity, @Id
+		
+----------------------------------------

@@ -1,0 +1,110 @@
+
+
+Dependecy Injection (DI):
+	
+	=> Design pattern of IoC.
+	=> IOC emphasis on Java class independent of each other and container frees them from object creation and maintenance.
+	=> DI allows user to create a dependent objects outside of a class and providing those objects to a class in various ways.
+	
+Defination:
+	 * Dependency Injection is a technique where an object receives other objects it depends on, rather than creating them itself. 
+	 * This means that the responsibility of creating and managing dependencies is transferred to an external entity, typically a framework or container.
+
+Need for Dependecy Injection	
+	=> Suppose class A had dependecy on Class B. 
+	=> This dependecy can create a lot of issues so in order to overcome from the dependecy, IOC resolves this using Dependecy Injection.
+
+Types of Dependency Injection: 
+	
+	* Constructor Injection: 
+		=> Dependencies are provided through a class constructor.
+	
+	* Setter Injection: 
+		=> Dependencies are provided through setter methods.
+	
+	* Interface Injection: 
+		=> The dependency provides an injector method that will inject the dependency into any client passed to it.
+	
+	* Fields Injection
+		=> Dependencies are injected directly into fields.
+
+Bean Life Cycle:
+https://www.geeksforgeeks.org/bean-life-cycle-in-java-spring/
+
+	-> Bean life cycle is managed by the spring container.
+	-> When we run the program then, first of all, the spring container gets started.
+	-> After that, the container creates the instance of a bean as per the request, and then dependencies are injected. 
+	-> And finally, the bean is destroyed when the spring container is closed.
+	-> Therefore, if we want to execute some code on the bean instantiation and just after closing the spring container, then we can write 
+		that code inside the custom init() method and the destroy() method.
+	
+	* Container Started 	-> 		Bean Initiated		-> 		Dependecy Injection		-> 		Custom init() method
+																										|
+																Custom Destroy Method	<-		Custom Utility Method
+
+	Ways to implement Life Cycle:
+		-> By XML
+			* Define the init and destroy methods in class.
+			* Register this init and destroy methods via XML file.
+		
+		-> By Programatic Approach:
+			* The class has to implement the interface InitializingBean and DisposableBean and provide the implementation of method afterPropertiesSet() for 
+				init and afterPropertiesSet() for destroy.
+			* After creating bean via XML file it will automatically calls the implemented method.
+		
+		-> Using Annotation:
+			* @PostConstruct and @PreDestroy annotation can be used for running script after bean creation and before the bean destroy.
+
+Spring Bean Scope:
+	
+	1. Singleton:
+		* Default scope.
+		* Only one instance of the bean is created per Spring IoC container.
+		* This single instance is shared across the entire application.
+		* Eg: <bean id="myBean" class="com.example.MyClass" scope="singleton"/>
+
+	2. Prototype
+		* A new instance of the bean is created every time it is requested from the Spring container.
+		* Useful for stateful beans.
+	
+	3. Request (Web-aware scope):
+		* A new instance of the bean is created for each HTTP request.
+		* Only valid in the context of a web-aware Spring application.
+	
+	4. Session (Web-aware scope):
+		* A new instance of the bean is created for each HTTP session.
+		* Only valid in the context of a web-aware Spring application.
+	
+	
+Methods to Create a Beans
+	
+	1. Creating Bean Inside an XML Configuration File (beans.xml)
+		<bean id="AnyUniqueId" class="YourClassName"></bean>
+	
+	2. Using @Component Annotation
+		-> Annotations are used to provide supplemental information about a program
+	
+	3. Using @Bean Annotation
+		-> In spring is the @Bean annotation which is applied on a method to specify that it returns a bean to be managed by Spring context.
+		-> Spring Bean annotation is usually declared in Configuration classes methods.
+	
+	
+Spring Autowiring:
+	https://www.baeldung.com/spring-autowire
+	
+	* Autowiring in the Spring framework can inject dependencies automatically
+	* To enable Autowiring in the Spring application we should use @Autowired annotation
+	* Simplify dependency injection and reduce boilerplate code.
+	
+	Ways of doing an Autowiring:
+		byName			-> It uses the name of the bean for injecting dependencies.It invokes the setter method internally for autowiring.
+		byType			-> It injects the dependency according to the type of bean. 
+		byConstructor	-> It injects the required dependencies by invoking the constructor.
+		autodetect		-> 
+		
+	* 	We can use autowiring on properties, setters, and constructors.
+	* 	By default, Spring resolves @Autowired entries by type. If more than one bean of the same type is available in the container, 
+		the framework will throw a fatal exception. To resolve this we use @Qualifier.
+	* 	Spring uses the bean’s name as a default qualifier value.
+	
+	

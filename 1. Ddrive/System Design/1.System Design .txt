@@ -1,0 +1,186 @@
+
+https://www.geeksforgeeks.org/what-is-system-design-learn-system-design/
+
+https://roadmap.sh/system-design
+
+
+
+-------------
+SOLID Principles
+-------------
+
+The SOLID principles are a set of five design principles in object-oriented programming that help create more understandable, flexible, and 
+maintainable software. 
+These principles were introduced by Robert C. Martin, also known as Uncle Bob. Here's a brief overview of each principle:
+
+1. Single Responsibility Principle (SRP):
+   - Definition: A class should have only one reason to change, meaning it should have only one job or responsibility.
+   - Example: A class that handles user authentication should not also handle logging user activities. These should be separate classes.
+
+2. Open-Closed Principle (OCP):
+   - Definition: Software entities (classes, modules, functions, etc.) should be open for extension but closed for modification.
+   - Example: Instead of modifying existing code to add new features, you should extend the code by adding new classes or methods.
+
+3. Liskov Substitution Principle (LSP):
+   - Definition: Objects of a superclass should be replaceable with objects of a subclass without affecting the correctness of the program.
+   - Example: If a function works with a base class object, it should also work with any derived class object without any issues.
+
+4. Interface Segregation Principle (ISP):
+   - Definition: Clients should not be forced to depend on interfaces they do not use. Instead of one large interface, create smaller, more specific interfaces.
+   - Example: Instead of having a single interface for all operations, split it into multiple interfaces, each serving a specific purpose.
+
+5. Dependency Inversion Principle (DIP):
+   - Definition: High-level modules should not depend on low-level modules. Both should depend on abstractions. Abstractions should not depend on details. Details should depend on abstractions.
+   - Example: Use interfaces or abstract classes to decouple high-level and low-level modules, making the system more flexible and easier to maintain¹(https://www.freecodecamp.org/news/solid-principles-explained-in-plain-english/)²(https://en.wikipedia.org/wiki/SOLID).
+
+These principles aim to improve code quality and make it easier to manage and extend over time. Would you like to dive deeper into any specific principle or see some code examples?
+
+(https://www.freecodecamp.org/news/solid-principles-explained-in-plain-english/): 
+(https://www.freecodecamp.org/news/solid-principles-explained-in-plain-english/)
+
+
+
+System Design with Interview Perspective
+
+	https://www.geeksforgeeks.org/how-to-crack-system-design-round-in-interviews/
+	
+	1. Goals and Gather Requirement
+		-> Functional Requirement
+		-> Non Functional Requirement
+	
+	2. Understand Estimation and Contraints
+		-> Storage Needed
+		-> Request per second
+		-> Desired scale
+	
+	3. High Level Component Design
+		-> “Is it best to design a monolithic or a microservices architecture?”
+		-> “What type of database should we use?”
+	
+	4.  Detailed design or Low-Level Design(LLD)
+		-> What about load distribution?
+		-> Should we use cache?
+		-> How will we handle a sudden spike in traffic?
+	
+	5. Define the Data model design	
+		-> Database Design - Scaling, SQL / NoSql, Replication, Data Backups
+		
+	6. API Designs
+		-> MVC Architecture
+		
+https://www.interviewbit.com/system-design-interview-questions/
+
+	-> CAP Theorem
+		* Consistency
+			-> Remain consistent after the execution of an operation in the database.
+			
+		* Availability
+			-> Database availability should always be there
+			
+		* Partition Tolerance
+			-> The database system should be functioning despite the communication becoming unstable.
+		
+	-> How is Horizontal scaling different from Vertical scaling?
+		-> Horizontal scaling 
+			* Refers to the addition of more computing machines to the network that shares the processing and memory workload across a distributed network 
+			  of devices. 
+			* Load Balancer Required
+			* Less proned to the failure as on system down request redirects to the another system.
+			* Network communication between the nodes.
+			* Possibility of data inconsistency
+			* Scale to multiple 
+			
+		-> Vertical Scaling
+			* Refers to the concept of upgrading the resource capacity such as increasing RAM, adding efficient processors etc of a single machine or 
+				switching to a new machine with more capacity.  
+			* Load Balancer Required
+			* More proned to the failure as on system down whole application is down.
+			* network communication is internal so quick.
+			* No possibility of data inconsistency.
+			
+	
+	-> Load Balancing
+		* They help to prevent requests from going to unhealthy or unavailable servers.
+		* Helps to prevent resources overloading.
+		* Helps to eliminate a single point of failure since the requests are routed to available servers whenever a server goes down.
+	
+	-> Latency, Throughput and availability of a server
+		* Latency: This is the time taken in milliseconds for delivering a single message.
+		* Throughput: This is the amount of data successfully transmitted through a system in a given amount of time. It is measured in bits per second.
+		* Availability: This determines the amount of time a system is available to respond to requests. 
+						It is calculated: System Uptime / (System Uptime+Downtime)
+		
+	-> What is Sharding?
+		* Sharding is a process of splitting the large logical dataset into multiple databases. 
+		* It also refers to horizontal partitioning of data as it will be stored on multiple machines.
+		* By doing so, a sharded database becomes capable of handling more requests than a single large machine.
+	
+
+https://dev.to/somadevtoo/top-50-system-design-interview-questions-for-2024-5dbk
+
+API Gateway:
+
+	-> An API Gateway is like a front door to your application. 
+	-> It manages and routes requests from clients (like web browsers or mobile apps) to various backend services. 
+	-> It can also handle tasks like authentication, rate limiting, and logging.
+	-> Best for microservices architectures where different services need to be accessed via APIs.
+
+Load Balancer:
+	
+	-> A Load Balancer distributes incoming network traffic across multiple servers to ensure no single server gets overwhelmed. 
+	-> It helps improve the availability and reliability of your application by balancing the load.
+	-> Best for scenarios where you need to distribute traffic across multiple servers for high availability.
+
+
+Forward Proxy
+	Forward Proxy: Used by clients to access restricted content or browse anonymously.
+
+Reverse Proxy: 
+	Used by servers to manage incoming traffic, improve performance, and enhance security.
+
+
+Monolithic Architecture / Microservices Architecture
+	
+	Structure:
+		Monolithic Architecture: Single, unified application.
+		Microservices Architecture: Multiple, independent services.
+	
+	Development and Deployment:
+		Monolithic Architecture: Changes require redeploying the entire application.
+		Microservices Architecture: Individual services can be updated and deployed independently.
+	
+	Scalability:
+		Monolithic Architecture: Scaling requires scaling the entire application.
+		Microservices Architecture: Individual services can be scaled independently based on demand.
+	
+	Flexibility:
+		Monolithic Architecture: Less flexible, as all components are tightly coupled.
+		Microservices Architecture: More flexible, as services are loosely coupled and can use different technologies.
+
+	Fault Isolation:
+		Monolithic Architecture: A failure in one part can affect the entire application.
+		Microservices Architecture: Failures are isolated to individual services, reducing the impact on the overall application.
+		
+Vertical Partitioning / Horizontal Partitioning
+
+	Key Differences
+	
+		Basis of Partitioning:
+		
+		Vertical Partitioning: Divides the table based on columns.
+		Horizontal Partitioning: Divides the table based on rows.
+
+		Use Case:
+
+		Vertical Partitioning: Useful when different columns are accessed frequently together.
+		Horizontal Partitioning: Useful when different rows are accessed frequently together, often based on some criteria like region or date.
+		
+		Performance:
+
+		Vertical Partitioning: Can improve performance by reducing the amount of data read for specific queries.
+		Horizontal Partitioning: Can improve performance by distributing the load across multiple tables or servers.
+		
+		Scalability:
+
+		Vertical Partitioning: Helps in managing large tables by breaking them into smaller, more manageable pieces.
+		Horizontal Partitioning: Helps in scaling out by distributing data across multiple servers.

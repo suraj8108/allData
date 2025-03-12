@@ -1,0 +1,218 @@
+
+https://www.geeksforgeeks.org/aptitude-for-placements/
+
+1. Numbers
+		Natural Numbers 	
+			-> Numbers greater than zero.
+				
+		Whole Numbers 
+			-> Numbers greater than equal to zero
+			
+		Integers
+			-> Includes both positive and negative numbers.
+			
+		Rational Numbers
+			->  Rational Numbers are those numbers that can be represented in the p/q form, where p and q are both integers and q can never be 0. 
+			-> 	Eg: 1/2, 3/5
+			
+		Irrational Numbers
+			->	Number which can not be represented in p/q form.
+			-> 	Eg: Root(2), pi, etc
+			
+		Real Numbers
+			-> Collection of rational and irrational numbers.
+			
+		Complex Numbers
+			->	It can be defined of the form a + ib,  where a and b are real numbers and “i” is the iota
+		
+		
+		Prime Numbers:
+			-> Divisible by 1 or itself.
+		
+		Composite Number:
+			-> Number which is not prime.
+		
+		Co-Prime Number:
+			-> Pair of numbers which has HCF as 1.
+			-> Eg: 9 and 4
+		
+		Perfect Numbers
+			-> Sum of divisors(except itself) of number equals to the given number.
+			-> 6 = 1 + 2 + 3
+		
+2. HCF and LCM
+
+		HCF / GCD:	
+			-> Largest possible number that can divide the given numbers.
+			-> Eg: HCF of 12 and 18 is 6
+			
+			-> Using Prime Factorization Method
+				Prime factorization of 36: 2^2 × 3^2
+
+				Prime factorization of 48: 2^4 × 3^1
+
+				Prime factorization of 72: 2^3 × 3^2
+				
+				Common factors: 2^2 and 3^1 (take the minimum power)
+				
+				So, the HCF of 36, 48, and 72 is 2^2 × 3^1 = 12.
+			
+			-> Using Subtraction technique
+				GCD of 96, 72:
+					-> 96 - 72 = 24
+				
+				GCD of 120, 96:
+					-> 120 – 96 = 24
+			
+		LCM 
+			-> Smallest common multiple of a given number
+			-> LDM of 4 and 6 is 12
+			-> Prime Factorization Method
+			
+			-> Using Division Tehnique
+				https://byjus.com/maths/prime-factorization-of-hcf-and-lcm/
+				
+				LCM of 20 and 12
+					2	| 20, 12
+					2	| 10, 6
+					5	| 5, 3
+					3	| 1, 3
+						| 1, 1
+				LCM =  2*2*5*3 = 60
+		
+		NOTE:
+			HCF * LCM = Product of numbers
+
+
+3. Work and Wages
+		
+		Work Done Formula:
+			Work done = (Rate of work)  x (Time)
+		
+		Wages:
+			-> Wages are usually proportional to the amount of work done. 
+			-> If a person A completes a task in ( n ) days and earns ( W ) rupees, then the daily wage is W / n.
+		
+		Formula:
+			Work Done = Efficiency * Time
+			Combined Work Rate = Sum of Individual Work Rates
+			Wages = Daily Wage * Number of Days
+
+4. Speed, Time and Distance
+		
+		-> To convert from km/hour to m / sec: a Km/hr = a x (5/18) m/s
+		-> To convert from m / sec to km/hour: a m/s = a x (18/5) Km/hr
+		
+		1. Average Speed for Varying Distances
+		
+			-> Speed = Distance / Time
+			
+		2. Average Speed for Equal Distances at Different Speeds
+		
+			-> Average Speed = (2 * S1 * S2)/(S1 + S2)	
+			
+			When to Use: 
+				Use this formula when covering equal distances at two different speeds, such as going to a location at one speed and returning at another.
+		
+		3. Relative Speed:
+				
+				Same Direction:
+					Relative Speed = Difference of Speeds
+						Example: Two trains moving at 80 km/h and 60 km/h in the same direction:
+						Relative Speed = 80 - 60 = 20 km/h
+				
+				Opposite Directions:
+					Relative Speed = Sum of Speeds
+						Example: Two trains moving at 80 km/h and 60 km/h toward each other:
+						Relative Speed = 80 + 60 = 140 km/h
+			
+			Passing a Stationary Object: 
+				* When a train passes a stationary object, the distance covered is equal to the length of the train.
+			
+			Train Passing a Platform: 
+				* When a train passes a platform, the distance covered is the sum of the lengths of the train and the platform.
+
+5. Pipes and Cistern
+	
+	Inlet & Outlet:
+		* The problems of pipes and cisterns usually have two kinds of pipes, Inlet pipe, and Outlet pipe / Leak. 
+		* The inlet pipe is the pipe that fills the tank/reservoir/cistern and the Outlet pipe / Leak is the one that empties it.
+	
+	Formulas:
+		Filling and Emptying:
+			-> If you need x hours to fill up a tank then part filled in 1 hr = 1/x
+			-> If y hours are required to empty the tank then part emptied in 1 hour = 1/y
+		
+		Combined Work
+			-> If one pipe can fill the tank in x hours and another can empty it in y hours (assuming y is greater than x), 
+				then the net part of the tank filled in 1 hour is equal to {(xy) / (y-x)}.
+			-> If one pipe can fill the tank in x hours and another can empty it in y hours (assuming x is greater than y), 
+				then the net part of the tank filled in 1 hour is equal to {(xy) / (x-y)}.
+		
+		-> Net Work Done = (Total Sum of Work Done by Inlets) – (Total Sum of Work Done by Outlets)
+		
+		-> If you have two inlets that can fill a certain tank, one taking x hours and the other taking y hours respectively, 
+			the total time taken to fill the tank is calculated with the formula {(xy) / (y+x)}
+	
+6 Boats and Streams:
+	
+	Upstream 
+		=> Moving against the direction of the stream or current.
+		=> Speed Upstream = (B - S) km / hr		--- Eq1
+			B = Speed of Boat in Still Water
+			S = Speed(Rate) of Stream
+	
+	Downstream 
+		=> Moving along the direction of the stream or current.
+		=> Speed Downstream = (B + S) km/hr	    --- Eq2
+		
+	Rate of Stream 
+		=> Moving water in a river or any other water body.
+		=> Equation solve - Subtract Eq1 and Eq2
+				B + S - B + S = D - U
+				2S = D - U
+				S = (D - U) / 2
+		=> Rate of stream = 0.5 × (D – U) km/hr
+			D = Downward Stream speed
+			U = Upward Stream speed
+		
+	Still Water Speed :
+		=> Water in a river or any other water body that is not flowing or stationary.
+		=> Speed of boat in still water = 0.5 × (D + U) km / hr
+
+
+7. Percentage
+	
+	Percentage Formula:
+		
+		* Percent of a Number = Percentage/100 × Number
+		* Eg: 5% of 50 is 2.5
+		
+	Percentage Difference Formula
+		* Percentage Difference = (Absolute difference / Average) × 100
+		* Eg: Percentage Difference between 50 to 100 will be 
+				((100 - 50) / 0.5*(100+50))* 100 = 66.66%
+	
+	Percentage Increase / Decrease Formula:
+		{(Final Value – Initial Value) / Initial Value} × 100 
+	
+	Percentage Chart:
+		1/1		-> 		100%
+		1/2		-> 		50%
+		3/5		-> 		75%
+		1/3		-> 		33.33%
+		1/4		-> 		25%
+		1/5		-> 		20%
+		1/6		-> 		16.67%
+		1/7		-> 		14.28%
+		1/8		-> 		12.5%
+		1/9		-> 		11.11%
+		1/10	-> 		10%
+	
+	Percentage Trick
+		=> % x of y = % y of x
+
+8. Clock
+	-> 1minute = 6 degree
+	
+	

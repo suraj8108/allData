@@ -1,0 +1,335 @@
+
+https://www.javatpoint.com/dbms-tutorial
+
+
+Database
+	-> Used to retrieve, insert and delete the data efficiently.
+	
+	Database Key Features:
+		-> Data Definition
+		-> Data Updation
+		-> Data Retrieval
+		-> User Administration
+	
+	Characteristics of DBMS
+		-> Secure
+		-> ACID principle
+		-> Easy to maintain
+	
+	Evolution of database:
+		-> File-Based
+		-> Hierarchical Data Model
+		-> Network data model
+		-> Relational Database
+		-> Cloud database
+		-> NoSQL Database
+	
+	Relational database properties:
+		* Atomicity
+		* Consistency
+		* Integrity
+		* Durability
+		* Concurrency
+		* Query processing
+	
+	DBMS (Data Base Management System)
+		Advantages:
+			-> Controls redundancy
+			-> Data Sharing
+			-> Backup
+			-> Multiple user interfaces
+		
+		DisAdvantages:
+			-> Size
+			-> Cost 
+			-> Complexity
+	
+	NoSQL Database
+		Characteristics:
+			* Key-value storage
+			* Document-oriented Database : Stores data as JSON like format
+			* Handles the large data set.
+			* high scalability
+			
+	
+	RDBMS (Relational Database Management System)	
+		-> Represented using the Table rows and columns
+		-> RDBMS is based on the Relational model
+		-> Contains several tables and each table contains primary key.
+		
+		Characteristics:
+			-> Record = tuple = row
+			-> column = attribute
+			-> cell = item
+			-> Degree = Total number of columns
+			-> Cardinality = Total Number of records
+			
+	DBMS Architecture:
+		->  DBMS uses basic client/server architecture is used to deal with a large number of PCs, web servers, database servers and other components 
+			that are connected with networks.
+		-> Types of DBMS Architecture:
+		
+			* 1-Tier Architecture
+				-> Direct interaction with the database is done. Executing the sql commands directly.
+				-> Used for development of the local application. 
+		
+			* 2-Tier Architecture
+				-> Basic client - server systems are used.
+				-> User Interface is present at the client side and Query Processing is done on the server side.
+				-> Eg: JDBC driver of Java is an API which defines how a client may access a database.
+				
+			* 3-Tier Architecture
+				-> Another layer is present between the Client and Server which is application server.
+				-> The client end interacts with application server and then application server takes that request and communicate further with Database.
+	
+	Three Schema Architecture
+		-> It contains the three schema layer
+			* Internal Schema Layer 		
+				-> Describes the physical storage structure of the database.
+				-> The internal schema is also known as a physical schema.
+				-> The inside implementation of the Database.
+				-> Eg: Hashing, B - Trees
+			
+			* Conceptual Schema Layer
+				-> Describes the design and the structure of the database.
+				-> Programmers and database administrators work at this level.
+				-> Defines the data types of the table. Eg: varchar, int etc
+			
+			* External Schema Layer
+				-> External view of the database.
+				-> Eg: MySQL shows the external views.
+		
+	Data Models:
+		-> Relational Data Model
+			* This type of model designs the data in the form of rows and columns within a table.
+			* Thus, a relational model uses tables for representing data and in-between relationships.
+		
+		-> Entity-Relationship Data Model
+			* An ER model is the logical representation of data as objects and relationships among them.
+			* These objects are known as entities, and relationship is an association among these entities.
+		
+	
+	DBMS Languages:
+		* Data Definition Language (DDL)
+			-> Used for creating a schema, tables, indexes, constraints, etc. in the database.
+			-> Tasks under DDL:
+				* Create
+				* Alter
+				* Drop
+				* Truncate
+				* Rename
+				* Comment
+			
+		* Data Manipulation Language (DML)
+			-> Used for accessing and manipulating data
+			-> Tasks under DML:
+				* Select
+				* Insert
+				* Update
+				* Delete
+				* Merge
+				
+		* Data Control Language (DCL)
+			-> Used to control access to data in the database
+			-> Task under DCL:
+				* GRANT
+				* REVOKE
+			
+		* Transaction Control Language (TCL)
+			-> Used to manage transactions in the database.
+			-> Task under TCL:
+				* COMMIT
+				* ROLLBACK
+	
+	ACID Properties of Relational Database
+			-> Atomicity 
+				=> This ensures the data operation will complete either with success or with failure.
+			
+			-> Consistency
+				=> If we perform any operation over the data, its value before and after the operation should be preserved.
+			
+			-> Isolation
+				=> There can be concurrent users for accessing data at the same time from the database. 
+				=> Thus, isolation between the data should remain isolated
+			
+			-> Durability 
+				=>  It ensures that once it completes the operation and commits the data, data changes should remain permanent event after system failure.
+
+	ER Diagram:
+		Refer some online ER Diagram
+		https://www.javatpoint.com/dbms-er-model-concept
+		
+		-> Entity					-> 	Represented as rectangle
+			* Weak Entity			-> 	Depends upon another entity for any record. Represented as double rectangle.
+			
+		-> Attribute				-> 	Describe the property of an entity. Represented as Eclipse.
+			* Key Attribute			-> 	Describe the primary key. Represented with Eclipse and text underlined.
+			* Composite Attribute	-> 	Composed of many other attributes is known as a composite attribute.Represented by an ellipse, 
+										and those ellipses are connected with an ellipse
+			* MultiValued Attribute	-> 	An attribute can have more than one value Eg PhoneNo. Represented by double oval.
+			* Derived Attribute		-> 	Attribute that can be derived from another attribute Eg age from DOB. Represented with dashed ellipse.
+		
+		-> Relation
+			* One to One			-> ---1---/\---1---
+			* One to Many			-> ---1---/\---N---
+			* Many to One			-> ---N---/\---1---
+			* Many to Many			-> ---N---/\---N---
+		
+	
+	Keys in DBMS:
+	
+		-> Primary key
+			* Key that identifies the one and only one instance of an entity uniquely.
+			* Eg: Employeed_id in Employee Table.
+		
+		-> Candidate Key
+			* A candidate key is an attribute or set of attributes that can uniquely identify a record.
+			Eg: In Employee table Passport Number, Licence Number.
+		
+		-> Super Key
+			* Super key is an attribute set that can uniquely identify a tuple. 
+			* A super key is a superset of a candidate key. 
+			* It may contain the additional attributes which does not require for unique identification of a tuple.
+		
+		-> Alternate key
+			* From the list of candidate key if we remove primary key then the remaining key will be termed as alternate key.
+			* The total number of the alternate keys is the total number of candidate keys minus the primary key.
+		
+		-> Foreign Key
+			* A column or set of columns in one table that refers to the primary key in another table.
+			* Eg: Employee Table contains the department_id as one of the column that refers to the department table.
+			
+		-> Composite Key
+			* Whenever a primary key consists of more than one attribute, it is known as a composite key.
+			* In Employee Project relation table of 1 to Many:
+				-> EmplpyeeId, Emp_role and Project_id this three attributes will together act as a primary.
+
+	DBMS Generalization
+		-> Buttom Up Approach
+		-> Two or more entities of lower level combine to form a higher level entity if they have some attributes in common.
+		-> It is more like subclass and superclass system.
+		-> In this subclass is defined first and then it leads to create an superclass.
+		-> Eg:
+					Person
+					  |
+					  | [ Is a  ]
+					 / \
+					/   \
+				   /     \
+			  Employee  Student
+	
+	DBMS Specialization
+		-> Top Down Approach. Opposite of Generalization.
+		-> Normally, the superclass is defined first, the subclass and its related attributes are defined next, and relationship set are then added.
+		-> Eg:
+					Employee
+					  |
+					  | [ Is a  ]
+					 / \
+					/   \
+				   /     \
+			  Tester   Developer
+	
+	DBMS Aggregation
+		-> Aggregation is a concept where a relationship between entities is treated as a single higher-level entity. 
+		-> It is used to express relationships among relationships.
+		-> It reuses the relationship
+		-> Eg 					 ________
+								/		 \
+				Center --------|  Offers  | ----------- Course
+								\_________/
+								    |
+								 ___|_____
+								/ 		  \
+								| Enquire |
+								\_________/	
+									|
+									|
+								 Visitor
+	
+	------------------------------------------------------
+	
+	Functional Dependency
+		-> The functional dependency is a relationship that exists between two attributes. 
+		-> It typically exists between the primary key and non-key attribute within a table.
+		-> Represented as X -> Y	where X = determinant and Y = dependent
+		-> Eg: In Employee table if we have EmployeeId then we can easily get the Employee Name.
+			Represented as EmployeeId -> EmployeeName
+		
+		Types of Functional Dependency
+		
+			-> Trivial Functional Dependency
+				*  A functional dependency ( X -> Y ) is trivial if ( Y ) is a subset of ( X ).
+					Eg: {Employeed_id, EmployeeName} -> {Employeed_id}
+						// Employeed_id is a subset of {Employeed_id, EmployeeName}
+				
+			-> Non - Trivial Functional Dependency
+				* A functional dependency ( X -> Y ) is non-trivial if ( Y ) is not a subset of ( X ).
+					Eg: EmployeeId -> EmployeeName
+				
+			-> Full Functional Dependency
+				* A functional dependency ( X -> Y ) is full if removing any attribute from ( X ) means the dependency no longer holds.
+					Eg: {StudentId, CourseId} -> Grade
+						Removing either StudentId or CourseId can not get the Grade.
+				
+			-> Partial Functional Dependency
+				* A functional dependency ( X -> Y ) is partial if some attribute can be removed from ( X ) and the dependency still holds.
+					Eg: {StudentId, StudentName} -> Instructor
+						// Removing Student Name can still give the Instructor
+			
+			-> Transitive Functional Dependency
+				* A functional dependency ( X -> Z ) is transitive if there is an intermediary attribute ( Y ) such that ( X -> Y ) and ( Y -> Z ).
+					Eg: In table of {Employeed_id, Department_Id, Manager_Id}
+						Employeed_id -> Department_Id, Department_Id -> Manager_Id
+						then Employeed_id -> Manager_Id 
+		
+	
+	DBMS Normalization
+		-> Normalization is a process in database design that organizes data to minimize redundancy and improve data integrity. 
+		-> It involves dividing large tables into smaller, related tables and defining relationships between them.
+		-> Normalization consists of a series of guidelines that helps to guide you in creating a good database structure.
+		
+		Data modification anomalies can be categorized into three types:
+			1. Insertion Anomaly: 
+					-> Insertion Anomaly refers to when one cannot insert a new tuple into a relationship due to lack of data.
+			
+			2. Deletion Anomaly: 
+					-> The delete anomaly refers to the situation where the deletion of data results in the unintended loss of some other important data.
+			
+			3. Updatation Anomaly: 
+					-> The update anomaly is when an update of a single data value requires multiple rows of data to be updated.
+				
+		NOTE: 
+			Non-prime attributes / Non Key Attribute : 
+				-> Are attributes that are not part of any candidate key. These attributes do not uniquely identify a record in a table.
+				
+		Types of Normal Forms:
+			-> First Normal Form (1NF)
+				=> A relation will be 1NF if it contains an atomic value.
+				=> First normal form disallows the multi-valued attribute, composite attribute, and their combinations.
+				=> Eg: In table contains multiple phone numbers then we need to bring that attribute to a single value.
+			
+			-> Second Normal Form (2NF)
+				=> In the 2NF, relational must be in 1NF.
+				=> In the second normal form, all non-key attributes are fully functional dependent on the primary key
+				=> Eg:	Teacher Table has teached_id, subject and teacherAge	// Teacher teaches multiple subject
+						In this case we need to have seperate Subject table which will have foreign key reference of Teacher.
+				
+			-> Third Normal Form (3NF)
+				=> A relation will be in 3NF if it is in 2NF and not contain any transitive partial dependency.
+				=> 3NF is used to reduce the data duplication. It is also used to achieve the data integrity.
+				=> Used to bring One to Many Relation
+				
+			-> Boyce Codd normal form (BCNF)
+				=> BCNF is the advance version of 3NF. It is stricter than 3NF.
+				=> A table is in BCNF if every functional dependency X → Y, X is the super key of the table.
+				=> For BCNF, the table should be in 3NF, and for every FD, LHS is super key.
+				=> Many to Many Relation
+			
+			-> Fourth normal form (4NF)
+				=> A relation will be in 4NF if it is in Boyce Codd normal form and has no multi-valued dependency.
+				=> For a dependency A → B, if for a single value of A, multiple values of B exists, then the relation will be a multi-valued dependency.
+			
+			-> Fifth Normal Form (5NF)
+				=> A relation is in 5NF if it is in 4NF and not contains any join dependency and joining should be lossless.
+				=> 5NF is satisfied when all the tables are broken into as many tables as possible in order to avoid redundancy.

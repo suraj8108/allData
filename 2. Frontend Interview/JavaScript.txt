@@ -1,0 +1,122 @@
+
+Java Script
+
+
+Execution Context
+
+	The Execution Context is an environment where JavaScript code is evaluated and executed. 
+	It contains the code that's currently running and everything needed for its execution. 
+	
+	There are two types of execution contexts:
+	1. Global Execution Context (GEC): 
+		-> Created when the JavaScript engine first starts executing your script. 
+		-> It represents the global scope.
+	
+	2. Function Execution Context (FEC): 
+		-> Created whenever a function is called. 
+		-> It represents the function's local scope
+
+Execution Stack
+
+	-> The Execution Stack, also known as the Call Stack, is a stack data structure that keeps track of all the execution contexts created during the 
+	lifecycle of a script. 
+	
+	-> JavaScript is single-threaded, meaning it can only execute one task at a time. 
+	-> The execution stack follows the Last-In-First-Out (LIFO) principle.
+
+Creation Phase
+
+	The Creation Phase is the first phase of the execution context lifecycle. 
+	During this phase, the JavaScript engine sets up the environment for the code to be executed. 
+	This involves:
+		1. Creation of the Variable Object (VO): The engine allocates memory for variables and functions.
+		2. Creation of the Scope Chain: The engine sets up the scope chain, which is used to resolve variable references.
+		3. Setting the value of `this`: The engine determines the value of the `this` keyword
+	
+	IMP 
+		Scope Chain: 
+			-> Helps the engine find variables in the correct context. 
+			-> Inner function has access to outer function variables so scope chain first check the called variable in current function and then goes to 
+				check for outer function and so on until it finds the global scope.
+				
+		this Keyword: 
+			-> Refers to the object executing the current function, varying based on the call context.
+
+Example
+	Let's look at an example to illustrate these concepts:
+
+	var x = 10;
+	function foo(y) {
+	var z = 20;
+	return x + y + z;
+	}
+	foo(30);
+
+
+1. Global Execution Context:
+   - Creation Phase: `x` is allocated memory and initialized to `undefined`. `foo` is allocated memory and initialized to the function definition.
+   - Execution Phase: `x` is assigned the value `10`.
+
+2. Function Execution Context (for `foo`):
+   - Creation Phase: `y` and `z` are allocated memory and initialized to `undefined`. The scope chain is set up, and `this` is determined.
+   - Execution Phase: `y` is assigned the value `30`, `z` is assigned the value `20`, and the function returns `60`.
+   
+   
+Function hoisting:
+
+	-> Function hoisting in JavaScript refers to the behavior where function declarations are moved to the top of their containing scope during the 
+		compilation phase. This allows you to call functions before they are defined in the code.
+	-> Function Declarations: These are hoisted completely, meaning both the function name and its body are moved to the top of the scope.
+	-> Function Expressions: These are not hoisted in the same way. Only the variable declaration is hoisted, not the assignment.
+
+Variable Hoisting:
+	-> Variable hoisting in JavaScript refers to the behavior where variable declarations are moved to the top of their containing scope during the 
+		compilation phase.
+	-> This allows variables to be used before they are declared in the code. However, only the declarations are hoisted, not the initializations.
+
+	var Declarations:
+		-> Variables declared with var are hoisted to the top of their scope and initialized with undefined.
+	
+	let and const Declarations:
+		-> Hoisted but not initialized, leading to a temporal dead zone.
+		-> It will throw error if accessed before declared by coder.
+	
+
+UseState 
+	Use State is assigned with const why it does not throws any error at the time of change in value.	
+		-> When you use const with useState, you are declaring that the reference to the state variable should not be reassigned. 
+		-> However, this does not mean that the value of the state cannot change. 
+		-> Instead, React provides a mechanism to update the state through the setter function returned by useState.
+
+	How It Works:
+	
+	Initial Render: 
+		=> When the component first renders, useState(0) initializes count to 0.
+	
+	State Update: 
+		=> When you call setCount(newValue), React schedules an update. 
+		=> This does not reassign the count variable directly. 
+		=> Instead, React keeps track of the state internally and triggers a re-render of the component.
+
+	Re-render: 
+		=> During the re-render, useState returns the updated state value, and count is assigned this new value.
+
+	Why No Error?
+	
+		Immutability
+			-> The const keyword ensures that the reference to count cannot be reassigned within the same render cycle. 
+			-> However, React manages the state internally and provides the updated value on subsequent renders12.
+		
+		State Management
+			-> The setCount function is the only way to update the state, ensuring that state changes are controlled and predictable2.
+
+
+https://www.geeksforgeeks.org/react/
+	
+	Advantages
+		-> Virtual DOM
+		-> Component 
+
+Libraries:
+	React Router DOM
+	

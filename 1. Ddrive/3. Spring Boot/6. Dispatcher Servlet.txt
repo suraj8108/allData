@@ -1,0 +1,7 @@
+
+Dispatcher Servlet 
+	-> DispatcherServlet acts as the Front Controller for Spring-based web applications.
+	
+web.xml
+	-> In Spring, the /WEB-INF/web.xml file is the Web Application Deployment Descriptor of the application. 
+	-> This file is an XML document that defines everything about your application that a server needs to know

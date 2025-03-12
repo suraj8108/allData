@@ -1,0 +1,142 @@
+
+https://www.geeksforgeeks.org/introduction-to-spring-boot/
+
+Spring Boot:
+	-> Build on top of Spring Framework
+	-> It provides an easier and faster way to set up, configure, and run both simple and web-based applications.
+	-> Rapid Application Development
+		=> Creates standalone Spring based application
+		=> Minimal Configuration
+	-> Overcome the disadvantage of spring to doing lot of configuration.
+	
+	-> Spring Frameowrk 	+ 	Embedded HTTP servers(Apache, Jetty) 	+	Adding annotation based configuration	= Spring Boot
+
+Features
+	* Microservice Based Architecture
+	* Provide ‘starter’ dependencies to simplify the build configuration.
+	* It allows to avoid heavy configuration of XML which is present in spring
+	* It includes embedded Tomcat-server
+	* It provides easy maintenance and creation of REST end points:
+	* Deployment is very easy, war and jar file can be easily deployed in the tomcat server:war or jar
+
+Spring Boot Architecture:
+	
+	* Presentation Layer 	– Authentication & Json Translation
+	* Business Layer 		– Business Logic, Validation & Authorization
+	* Persistence Layer 	– Storage Logic
+	* Database Layer 		– Actual Database
+	
+	* Presentation Layer	: As the name suggests, it consists of views(i.e. frontend part)
+	* Data Access Layer		: CRUD (create, retrieve, update, delete) operations on the database comes under this category.
+	* Service Layer			: This consist of service classes and uses services provided by data access layers.
+	* Integration Layer		: It consists of web different web services(any service available over the internet and uses XML messaging system).
+	
+	
+Spring Boot Actuator:
+	* Spring Boot provides an actuator dependency that can be used to monitor and manage your Spring Boot application
+	* By /actuator and /actuator/health endpoints you can achieve the purpose of monitoring.
+	* It increases customer satisfaction.
+	* It reduces downtime.
+	* It boosts productivity.
+
+Spring Boot Starter
+		
+	Convenience:
+		* Spring Boot starters provide a one-stop-shop for all the Spring and related technology you need. 
+		* Instead of manually specifying each dependency, you can include a starter that bundles multiple dependencies together.
+	
+	Dependency Management
+		* When you add a Spring Boot starter to your pom.xml, it automatically includes a curated set of dependencies that are compatible with each other. 
+		* This reduces the risk of version conflicts and simplifies dependency management.
+	
+	Configuration: 
+		* Starters also come with sensible defaults and auto-configuration, which means you can get up and running quickly without extensive configuration.
+	
+	Eg:
+		spring-boot-starter-web
+		spring-boot-starter-data-jpa
+		spring-boot-starter-security
+		spring-boot-starter-security
+		spring-boot-starter-actuator
+		spring-boot-starter-batch
+		spring-boot-starter-mail
+		
+
+IMP Annotations:
+
+	@EnableAutoConfiguration
+		* This annotation auto-configures the beans that are present in the classpath.
+		* Spring boot auto-configures Tomcat , and Spring MVC 
+	
+	@ComponentScan 
+		* @ComponentScan tells Spring in which packages you have annotated classes that should be managed by Spring.
+	
+	
+	@Controller
+		* This annotation provides Spring MVC features. It is used to create Controller classes and simultaneously it handles the HTTP requests. 
+	
+	@RestController
+		* This annotation is used to handle REST APIs such as GET, PUT, POST, DELETE etc. and also used to create RESTful web services using Spring MVC.
+		* @RestController = @Controller + @ResponseBody 
+	
+	@RequestMapping
+		* This annotation is used to map the HTTP requests with the handler methods inside the controller class.
+		* @RequestMapping(value=" ",method=RequestMapping.GET)
+			-> value Attribute: Defines the URL pattern for the request. It can be a single URL or an array of URLs.
+		
+	@RequestParam
+		* This annotation is basically used to obtain a parameter from URI.
+	
+	@PathVariable
+		* This annotation is used to extract the data from the URI path. It binds the URL template path variable with method variable.
+	
+	@RequestBody
+		* This annotation is used to convert HTTP requests from incoming JSON format to domain objects directly from request body.
+	
+	@ResponseBody
+		* This annotation is used to convert the domain object into HTTP request in the form of JSON
+	
+		
+
+Spring Framework Annotations:
+	Spring Core Annotations
+		* @Autowired
+		* @Qualifier
+		* @Primary
+		* @Bean
+		* @Value
+		* @Required
+		* @Lazy
+	
+	Spring Web Annotations
+		* @RequestMapping
+		* @RequestBody
+		* @PathVariable
+		* @RequestParam
+		* Response Handling Annotations
+			* @ResponseBody
+			* @ExceptionHandler
+			* @ResponseStatus
+		* @Controller
+		* @RestController
+	
+	Spring Boot Annotations
+		* @SpringBootApplication
+			* @EnableAutoConfiguration
+			* @Configuration
+			* @ComponentScan
+		* @SpringBootApplication
+	
+	Spring Data Annotations
+		* @Id
+		* @Param
+		* @Query
+	
+	Spring Bean Annotations
+		* @ComponentScan
+		* @EntityScan
+		* @Configuration
+		* @Component
+		* @Service
+		* @Repository
+		* @Controller

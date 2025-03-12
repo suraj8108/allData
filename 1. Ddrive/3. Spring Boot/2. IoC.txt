@@ -1,0 +1,99 @@
+
+https://www.geeksforgeeks.org/spring-understanding-inversion-of-control-with-example
+
+Spring IoC
+
+	The Spring IoC (Inversion of Control) container is a core feature of the Spring Framework. 
+	It is responsible for managing the lifecycle and configuration of application objects, known as beans. 
+
+Here's a simple explanation:
+	What is IoC?
+		=> 	Inversion of Control (IoC) is a design principle where the control of object creation and dependency management is transferred from the 
+			application code to a container or framework. 
+		
+		=> 	This helps in creating loosely coupled and easily testable code.
+	
+There are 2 types of IoC containers:
+	* BeanFactory 		 - Basic version of IoC container.
+	* ApplicationContext - Extended version of bean factory
+
+How does the Spring IoC Container work?
+
+	1. Configuration Metadata: 
+		=> The container reads configuration metadata, which can be provided in XML files, annotations, or Java code. 
+		=> This metadata tells the container how to create and configure beans.
+	
+	2. Bean Creation: 
+		=> Based on the configuration, the container creates instances of the beans.
+	
+	3. Dependency Injection: 
+		=> The container injects dependencies into the beans, managing their relationships and lifecycle.
+
+### Example
+Let's look at a simple example using XML configuration:
+
+Step1. **Define Beans in XML**:
+	   ```xml
+	   <!-- applicationContext.xml -->
+	   <beans xmlns="http://www.springframework.org/schema/beans"
+			  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			  xsi:schemaLocation="http://www.springframework.org/schema/beans
+								  http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+		   <bean id="myBean" class="com.example.MyBean">
+			   <property name="dependency" ref="myDependency"/>
+		   </bean>
+
+		   <bean id="myDependency" class="com.example.MyDependency"/>
+	   </beans>
+	   ```
+
+Step2. **Create and Use the Application Context**:
+	   ```java
+	   import org.springframework.context.ApplicationContext;
+	   import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+	   public class Main {
+		   public static void main(String[] args) {
+			   ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+			   MyBean myBean = context.getBean(MyBean.class);
+			   myBean.doSomething();
+		   }
+	   }
+	   ```
+
+In this example:
+
+	- The `applicationContext.xml` file defines two beans: `myBean` and `myDependency`.
+	- The `MyBean` class has a dependency on `MyDependency`, which is injected by the Spring IoC container.
+	- The `Main` class creates an `ApplicationContext` and retrieves the `MyBean` instance, which is fully configured and ready to use.
+
+---------------------------------------
+
+POJO Class:
+	-> Plain Old Java Object
+	->  Typically, POJOs use private fields and provide public getter and setter methods.
+	-> It is not bound by any special framework or convention, making it easy to use and maintain.
+
+Bean Factory
+	-> BeanFactory represents a basic IoC container which is a parent interface of ApplicationContext
+	-> BeanFactory uses Beans and their dependencies metadata from XML file, to create and configure them at run-time.
+	-> BeanFactory does not support Annotation-based configuration whereas ApplicationContext does.
+	
+
+Application Context
+	-> ApplicationContext is the superset of BeanFactory
+	-> There are different types of Application containers provided by Spring for different requirements 
+		
+		* AnnotationConfigApplicationContext container 
+			->  @Configuration, @Component
+			
+		* AnnotationConfigWebApplicationContext container
+		* XmlWebApplicationContext container
+		* FileSystemXmlApplicationContext container
+		* ClassPathXmlApplicationContext container
+	
+	When we create a Sprint Boot Application:
+		-> The SpringApplication.run() method is provided by default in the main class when the SpringBoot project is created. 
+		-> It creates the container, creates beans, manages dependency injection and life cycle of those beans. 
+		-> This is done using @SpringBootApplication annotation.

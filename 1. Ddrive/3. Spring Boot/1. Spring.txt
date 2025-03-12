@@ -1,0 +1,75 @@
+
+https://www.geeksforgeeks.org/introduction-to-spring-framework/
+
+https://www.javatpoint.com/spring-tutorial
+
+Spring
+
+	* Spring is a lightweight framework.
+	* Termed as a framework of framework.
+	* Provides support of various framework
+		-> Stuts
+		-> Hibernate
+	* Comprises of 
+		-> IOC
+		-> AOP
+		-> DAO
+		-> ORM
+		-> Web MVC
+
+Advantages of Spring Framework:
+	* Predefined Templates - Eg:  JDBC, Hibernate, JPA etc
+	* Loose Coupling
+	* Easy to test
+	* Lightweight
+	* Fast Development
+	* Powerful abstraction
+	
+Spring Modules
+	
+	* Test
+		-> This layer provides support of testing with JUnit and TestNG.
+
+	* Spring Core Container
+		-> The Spring Core container contains core, beans, context and expression language (JSP) modules.
+		
+		Core and Beans:
+			-> These modules provide IOC and Dependency Injection features.
+			
+	* AOP
+	* Data Access 	- JDBC, ORM, JMS
+	* Web			- Web, Web-Servlet
+	
+IOC and Dependecy Injection:
+	* Design patterns that are used to remove dependency from the programming code.
+
+
+Features of Spring Framework:
+	* IoC container
+	* Data access framework
+	* Spring MVC framework
+	* Transaction management
+	* Spring Web Service
+	* JDBC abstraction layer
+	* Spring TestContext framework
+	
+Spring Architecture
+	* Core Container
+		-> Spring Beans
+		-> Spring IOC
+		
+	* Data Access/Integration 
+		-> Spring JDBC
+		-> Spring ORM
+		-> Spring Transaction
+		-> Spring Data
+	* Web
+		-> Spring Web MVC
+		-> Spring Web Services
+		
+	* Miscellaneous
+		-> Spring Security
+		-> Spring Batch
+		-> Spring Cloud
+	
+	

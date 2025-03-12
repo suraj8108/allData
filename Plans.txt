@@ -1,0 +1,63 @@
+
+
+Tips for Walk in interview
+	-> https://in.indeed.com/career-advice/interviewing/walk-in-interview
+
+Wissen Preperation:
+	Java Basics and Advance
+		-> Java Notes : Basics and OOPS concept done
+		-> 
+
+	DSA
+		-> 
+	
+	Aptitude
+		-> Partially Done Quantitative Aptitude
+		-> 
+	
+	Java Spring Boot
+		-> GFG and Notes
+		-> Interview Question
+	
+	RDBMS & SQL
+		RDBMS Theory - https://www.javatpoint.com/what-is-rdbms
+		SQL Commands - https://www.w3schools.com/sql/sql_intro.asp
+	
+	Operating System & Networking
+		-> 
+	
+	System Design Principles
+		-> 
+-> Interview Questions on Spring boot
+-> Monolithic and Microservices
+-> 
+Resume:
+	Hi Thank you for giving me the opportunity
+	My Name is suraj yadav, I have bachelors degree from thakur colleege of egineering and technology
+
+
+------------------------------------------------------------------------------------------------------------
+Next Three Month Plan:
+	1. AI / ML 
+	2. DSA By Striver
+			
+	1. DSA By Striver
+		-> 
+	
+	
+	2. AI / ML 
+		ML Course
+			
+			Topics to Master ML:
+				1. Technical - Python, GIT, DSA, SQL
+				2. Mathematics - Linear Algebra, Probablity, Statistics, Calculus
+				3. Data Handling - Pandas, NumPy
+				4. Machine Learning Fundementals ( Supervised and Unsupervised Learning )
+				5. Advance Topics - (Deep Learning, CNN)
+				6. Model Deployment
+			
+			Basics of all the Parts:
+				https://capgemini.udemy.com/course/complete-machine-learning-nlp-bootcamp-mlops-deployment/
+				
+			Contains Alorithms:
+				https://capgemini.udemy.com/course/machinelearning/
