@@ -1,0 +1,372 @@
+Interfaces in Go
+	-> Its like a contract if signed you will have to implement all the functions of the interface.
+	-> Eg: type <interface_name> interface {
+			Save() error
+		}
+	-> Interface os of type so it can be passed as parameter.
+	-> Two struct if implements all the function of interface then it can be used as one of the type of interface.
+	
+	Embedded Interface
+		We can have interface inside another interface. It depicts that the struct that implements the outer interface should implement all the methods of the inner 
+		interface as well
+		Eg: type student interface{
+				getName()
+				getRoll()
+			}
+			
+			type monitor interface {
+				student,
+				getClassName()
+			}
+	
+	Any parameter
+		-> In go we define a parameter type "interface {}" which depicts this accepts any type of value.
+		-> You can alternativly use "any". That is an alias for the special "any value is allowed" type.
+	
+	Working with type 
+		We can check the type of incoming interface
+		Eg: value.(type) // returns data type of an interface value. It works only with switch
+	
+	Extracting Type Information
+		We can extract the value from the given interface.
+			// value is an interface. Below we are converting interface to int.
+		Eg: typedVal, ok := value.(int)  // typedVal get the original value where Go knows its type and ok returns boolean is value of type int or not.
+			typesVal1, ok := value1.(int) // Converting value1 interface to int.
+			
+			// value1 + value2   -> This will give an error as interface addition operation can not be performed.
+			// typedVal + typesVal1 -> This will not give an error.
+
+	
+	Generics in Go:
+		We can give generic names to the interface and use that as the type.
+
+Strings in Go
+
+	
+	* Strings in Go is immutable. Compiler will throw error in case if you try to change a value of it.
+	* Looping of element in string can be done using range for loop.
+	* Access individual byte of a string be done by a[0].
+	
+	* Trim String in Go:
+		
+		1. strings.Trim(name, " ");			// (string, cutset) - Trimes the cutset from both the side of a string.
+		2. strings.TrimSpace(name);			// Trims the space from both the side of string.
+		3. strings.TrimLeft(name, cutset);	// Removes specified characters from the start of a string.
+		4. strings.TrimRight(name, cutset); // Removes specified characters from the end of a string.
+	
+	* Split String in Go:
+		
+		1.  strings.Split(s, sep string)
+			-> The Split function divides a string into all substrings separated by the specified separator and returns a slice with these substrings.
+			-> s: The string to be split.
+			-> sep: The separator. If sep is empty, it splits after each UTF-8 character. If both str and sep are empty, it returns an empty slice.
+	
+	* String Comparison:
+		
+		1. Using comparison operator 
+			a. str1 == str2  				// true if str1 equals str2
+			b. str1 < str2   				// true if str1 comes Lexicographical before str2
+		
+		2. Using strings.Compare
+			a. Strings.Compare(s1, s2)		// 0 -> s1 is equal to s2, 1 if s1 is lexicographically greater than s2
+			
+Arrays in GoLang
+
+	-> Defining array 
+			* The length of the array is fixed and unchangeable.
+			* var <variableName> [<length>]type
+			* Similar to java we can access and update the arrays.
+			* In an array, if an array does not initialize explicitly, then the default value of this array is 0. 
+			* Array is of value type not of reference type. So when the array is assigned to a new variable, then the changes made in the 
+				new variable no change in original array.
+			* In an array, if the element type of the array is comparable, then the array type is also comparable. 
+				So we can directly compare two arrays using == operator
+				Eg: arr1 == arr2	// arr1 and arr2 size should be same.
+			
+	-> Shorthand array declaration:
+			* Eg: animals := [4]string {"Cat", "Dog", "Lion", "Fix"}
+			
+	-> Multi-Dimensional Array
+			* syntax: Array_name[Length1][Length2]..[LengthN]Type
+			
+		Copy an Array
+			* Using the FOR loop
+			* Direct Assignement:
+				-> You can assign one array to another if they are of the same type and length. This method doesn’t work with slices.
+			* Using Pointers (If Arrays are Large)
+				-> If you are working with large arrays and want to avoid copying, you can use pointers to reference the source array.
+				-> This won’t create a new array but will point to the existing array’s memory location.
+			
+Slices in GoLang
+
+	-> Alternative and efficient way of array.
+	-> It has dynamic size and added features.
+	-> It represents the portion of an array.
+	-> It is flexible, powerful and more convient than array.
+	-> Slice is a variable-length sequence that stores elements of a similar type
+	-> Eg: 
+		* 	Slices: A window of an array.
+			newArray := array[0:3] // 0 included and 3 excluded
+			Slices is an part of window of an array, Any change in the value of sliced element it will change it in the original array as well.
+	
+		* 	newArray :=  []string {"Suraj", "Anand", "Astha", "Jyoti"}
+			sliceElem := newArray[1:3]
+			len(sliceElem) 	// Outputs 2
+			cap(sliceElem)  // Outputs 3 because slice takes the whole right capacity of newArray, capacity is extendable to right not to the left.
+	
+	Declaration of Slice
+	
+		1. Using slice literal:
+			* var my_slice[]int OR my_slice := []int {} OR my_slice := []int {1,2,3}
+			* var my_slice[]int OR my_slice := []int {} -> Its does not contain reference array so len and cap will be 0 and  it points to nil
+			
+		2. Using Array
+			* mySlice := arr[1:2]
+		
+		3. Using already Existing Slice
+			* mySlice := oldSlice[1:2]
+		
+		4. Using make function
+			* mySlice := make([]int, 7, 10) // type, length, capacity
+			* mySlice := make([]int, 7) 	// type, length
+	
+		Components of Slice
+			* Pointer - The pointer is used to points to the first element of the array that is accessible through the slice.
+			* Length: The length is the total number of elements present in the array.
+			* Capacity: The capacity represents the maximum size upto which it can expand.
+	
+	Modifying of Slice:
+		* As it refers to underlying array so if we change element in slice then changes will also be applied to referenced array.
+	
+	Sorting of Slice:
+		* 'sort' standard library is used to sort the slice of ints, float64s, and strings.
+		
+		* Sorting in Ascending order:
+			* sort.Strings(slc1)
+			* sort.Ints(slc2)
+			
+		* Sorting in Descending order:
+			* Custom comparison
+			* sort.Slice(intSlice, func(i, j int) bool {
+					return intSlice[i] > intSlice[j]
+				})
+		
+	Functions of Slices	
+		* append(my_slice, 1,2,3,4)			// append any number of element
+		* len(<sliceName>)					// len share the number of element currently present
+		* cap(<sliceName>) 					// cap shares the whole capacity of the slice.
+	
+	Dynamic List with slices
+		prices := []float64 {10.99, 8.99} 	// Dynamic sizing of the slice
+		updatedSlices := append(prices, 5.99)				// Append creates a new slice and appends the value to it.
+	
+	To Merge different slices we can use (...) operator
+	goals1 := []string {"A", "B"}
+	goals2 := []string {"C", "D"}
+	goals4 := append(goals1, goals2...)
+
+Pointers in Go:
+
+	* Variable that stores address instead of value.
+	* Go has a Garbage collector which is a process that cleans up unused data.
+	* The null value of the pointer in Go is "nil" - a special value built in Go.
+	* nil represents the absence of an address value - i.e., a pointer pointing at no address / no value in memory.
+	
+	Delaring Pointers:
+		var name *string
+	
+	Advantage of Pointers
+		* Avoid Unnecessary value copies
+		* Direct Mutate values.
+	
+	Pointers are used when :
+		1. You want to avoid copying large structs by passing references instead.
+		2. You need to modify the original struct values from within a function.
+		3. You want to improve performance by reducing memory usage.
+
+Map in Go Lang
+	-> Creating Map syntax
+		map[string]string		-> map[<datatype or customtype>]<datatype or customtype>
+		websites := map[string]string {"google" : "google.com"}
+		googleURL := websites["google"]
+		delete(googleURL , "google")
+	
+	-> Using make
+		lang := make(map[string]string)
+		
+make() functions
+	
+	Advatage of using make function is that go has to each time allocate a memory if we create a slice or map by basice approach whenever there is an increase
+	in the size, but using make function we can allocate some predefined size and go will create that slice or map for the first time with that much size.
+	
+	Slices
+	-> syntax make([]string, 2)			// make([]<slicetype>, <optional, intialsize a size of an array>, <optional, maximum number of array elements allowed>)
+		// Make at start initalizes the array with size provided and adding default value to it.
+	
+		
+	Map
+		-> make(map[string]string, 3)	// make(map[string]string, 3)
+		
+	Type Alias 
+		We can create a type alias and use it in make function. 
+		
+		type floatMap map[string]string;
+		func (m floatMap) output() {
+			fmt.Println(m);
+		}
+		websites :=	make(floatMap, 2)
+		websites["google"] = "google.com"
+		websites.output();
+	
+	For loops
+		-> Slices
+			for index, user := range userNames {}
+		-> Maps
+			for key, value := range websites {}
+			
+		
+Depeer in to Functions
+	1. Using function as parameter value
+		-> We can pass function as the parameter in the another function
+		-> Eg: func usersMotherLanguage(user string, getUserMotherLanguage func (string) string)
+		
+		-> Alias Function Type 
+			We can also assign an alias to the function name and pass it to the function
+			type fetchMLanguage func(string) string
+			func usersMotherLanguage(user string, getUserMotherLanguage fetchMLanguage)
+		
+		-> We can similarly do for returning functions as value in Go as we did for passing a function as parameter.
+			
+			
+	2. Anonymous function
+		-> We can create an anonymous function in an single line and pass it to the function as parameter
+		
+		-> Passing Anonymous function as a parameter
+			func performAddition(a int, b int, func(int, int) int { 
+				return a + b;
+				})
+		
+		-> Returning Anonymous function 
+			-> We can return the anonymous functions from the another function as shown below.
+			Eg: func translateNumber(factor int) func (int) int {
+				return func(int number) int {
+					return number*factor;   		// factor variable gets lockedin in this function
+				}
+			}
+		-> Closures
+			-> Every anonymous function is a closure.
+			-> If we use the variable from outer scope in an anonymous function then it gets locked in to the anonymous function. This is called closure.
+			
+				
+				
+	3. Recursion
+		-> Same as Java
+	4. Variadic function
+		-> Functions where we can pass multiple argument by just defining one single parameter in the function
+		-> Eg: func sumup(number ...int) {}
+
+GoRoutines
+
+Concurrency VS Parallelism
+	Concurrency
+		* When two or more control flows(threads) of execution share one or more CPU's.
+		* In such case CPU scheduler is responsible for desciding when each threads gets to executed on which CPU.
+		* For Eg: Even if there is one CPU and two or more thread share the CPU, then its considered as concurrent execution.
+		* Concurrency makes efficient use of available resource.
+		
+	Parallelism
+		* It is a subset of concurrency
+		* Its when two or more threads executed at the same time on two or more CPUs
+		* For Eg: Three threads executing on three different CPUs simultaneously.
+	
+	
+
+	GoRoutines
+		* Key feature in Go which allow you to run functions concurrently or in parallel.
+		* Threads VS GoRoutine
+			-> Thread is managed by OS while GoRoutine is managed by Go runtime.
+			-> Thread stack default size is 1MB while in GoRoutine default stack size 2KB.
+		* Do not communicate by sharing a memory rather share a memory to communicate.
+		
+		* Creating a GoRoutines
+			-> Running program parallely.
+			-> If we use the following term it dispatches to goroutine
+				go fmt.Println("Hello");
+		
+		* Sync.waitgroup in GoLang
+			-> sync.WaitGroup is a synchronization primitive in Go that is used to wait for a collection of goroutines to finish thier execution.
+			-> It allows you to coordinate the execution of multiple goroutine and ensure that they all complete before continuing with the rest of the program.
+			-> Working of waith group behind the scene:
+				1. You create a sync.WaitGroup variable to keep track of the number of goroutine you want to wait for.
+				2. For each goroutine you start, you increment the WaitGroup counter using the Add method.
+				3. Inside each goroutine, you call Done on the WaitGroup to signal that the GoRoutine has finished its work.
+				4. Finally, you call Wait on the WaitGroup to block the main goroutine until all the other goroutines have called Done.
+			
+			-> There are other way of synchronization mechanisms in Go that we can use depending on specific use case.
+			-> We can use channels to synchronize goroutines.
+		
+		* mutex in GoLang
+			-> When there is a variable which is being used by multiple goroutines then the mutex comes in to picture.
+			-> Mutex locks or unlocks the memory address in order to overcome from data collision by multiple goroutines.
+			
+			-> RWMutex - ReadWriteMutex
+				* Advance version of Mutex where lock also gets implemented while reading the resource.
+				* In Mutex we apply lock while writing on it.
+				* Functions of RWMutext and Mutex are same.
+				* Read is generally a quick operation compared to Write.
+				* Write operation is given a priority so if any goroutine is reading then another wants to write then read goroutines are blocked and write is
+					given a priority.
+			
+	Channel
+	@ChaiAndCode @CodeWithRyan
+		-> Mode of communication between the goroutine.
+		-> Thread Safe
+		-> Hold Data
+		
+		Sender (ch <-):
+			* Sender sends the data in the channel.
+			
+		Receiver (<- ch):
+			* The next line of the receiver wont execute until it gets the data from the channel
+		
+		Close
+			* We can close the channel once sender has done with sending the data.
+		
+		Unbuffered Channel:
+			* Channel which does not have any buffer to store the data. 
+			* The receiver has to simultaneously consume the sent data.
+			* Eg: done := make(chan bool)
+		
+		Closing the DataChan
+			* Used to close a channel, signaling that no more values will be sent on it
+			* Only sender should close the channel
+			* Checking if channel is closed:
+				value, ok := <-channel
+				if !ok {
+					// Channel is closed
+				}
+			
+		-> Creating a channel
+			done := make(chan bool)		// Unbuffered Channel it does not have any buffer.
+			go greet(done)				// Passing channel to goroutine
+		
+		-> Updating data in goroutine
+			done <- true
+		
+		-> Channel is the medium to call the goRoutines, if we do not call the channel we wont be calling the goroutine
+	
+	Select:
+		-> It is similar to switch statement with cases where in cases it selects the channel
+		-> The first channel that is set in the goroutine will be called in the switch statement.
+		-> Look example for more understanding
+		
+
+
+Environment Variables of Go
+	GOROOT 		- The root directory of your Go installation
+	GOPATH 		- This variable specifies the workspace directory for your Go projects. It is where your Go code, binaries, and packages are stored.
+	GOBIN		- This variable specifies the directory where Go installs binaries. By default, it is set to $GOPATH/bin
+	GOOS		- This variable specifies the target operating system for which the Go code is being compiled. Common values include linux, darwin (macOS), 
+					and windows
+	GOPROXY		- This variable specifies the proxy server for downloading Go modules. It can be set to direct to disable the proxy.
+	GOCACHE		- This variable specifies the directory where the Go build cache is stored.

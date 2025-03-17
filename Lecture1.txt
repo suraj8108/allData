@@ -1,0 +1,500 @@
+https://www.geeksforgeeks.org/golang-tutorial-learn-go-programming-language/
+
+https://www.youtube.com/watch?v=8uiZC0l4Ajw
+
+https://gobyexample.com/hello-world
+
+Go Language
+	=> About
+		* Procedural Programming Language - Works with function and all.
+		* Dynamic languages Eg: Type inference := 
+		* Statically Typed language - Type in known at compile time rather at runtime.
+		* Garbage-collected programming language
+		* Support for concurrency through Goroutines and channels.
+		* Automatically Manages memory - restricts memory leaks and errors.
+		* OpenSource
+		
+	=> Functionalities
+		* Simplicity, Scalability, Clarity
+		* High Performance & Focus on concurrency
+		* Standard Libraries & Code Features are built in.
+		* Static Typing
+	
+	=> Mostly Used in
+		* Networking and API's
+		* Microservices
+		* CLI Tools
+		
+		Companies using Go
+			* Kubernates
+			* DropBox
+			* Netflix
+	
+	=> Advantage:
+		* Flexible, Concurrent, Library, Performance
+	
+	=> DisAdvantage:
+		* No support for Generics which make difficult to reuse the code.
+		* Limited OOPs Features: Does not have Polymorphism or Inheritance
+	
+	GoLang eliminates the problem of existing language:
+		=> Python: It is easy to use but slow in comparison to Golang. 
+		=> Java: It has a very complex type system.
+		=> C/C++: It has slow compilation time as well as a complex type system.
+		
+		=> All these languages were designed when multi-threading applications were rare, so not very effective to highly scalable, 
+			concurrent and parallel applications.
+		=> Threading consumes 1MB whereas Goroutine consumes 2KB of memory, hence at the same time, we can have millions of goroutine triggered.
+	
+	Go Programming Language Key Features :
+		=> Compilation time of Golang is fast access to others.
+		=> Support concurrency and lightweight processes.
+		=> Golang supports Interfaces.
+		=> Go language programming supports generic programming.
+		=> It supports assertions.
+		
+
+Lexer in GoLang:
+	-> Validates the grammer of the program
+	-> Prior to compilation it checks all the rules in the code.
+	-> Lexer can add the semicolon
+	
+List of Rules
+	-> Package name is the mandatory.
+	-> There are multiple ways to execute a go code one is to use "go run ." command and another is to create executable file.
+	-> Go can have multiple go file with package as main but one we cannot have the multiple main function in the main package.
+
+Package
+	-> Multiple go files can have the same package name. 
+	-> It helps to reuse the code.
+	-> The term "main" for the package is given to inform the compiler that where starting point of execution of the program.
+
+Module
+	-> Go understand both the module and package
+	-> A single project has single module and inside that module it will have multiple packages.
+	-> Command "go mod init <module-name>" create a go.mod file containing the module name and details.
+	
+Data Types
+	* Variable type should be known in advance.
+	* In Go everything is a type.
+	Data Types:
+		=> Basic type: 
+			* Numbers
+				1. Integer - byte, int8, int16, int32, int64, 
+				2. Floating Point Number - float32, float64
+				3. Complex Numbers - complex32, complex64
+			* Strings
+				=> String is a sequence of immutable bytes.
+				=> Strings can be concatenated using plus(+) operator.
+				
+			* Booleans 
+			* Null Values
+				:= int has 0
+				:= float64 has 0.0
+				:= string has ""
+				:= bool has false
+		
+		=> Aggregate type: Array and structs come under this category.
+		
+		=> Reference type: Pointers, slices, maps, functions, and channels come under this category.
+		
+		=> Interface type:
+
+Identifiers in Go
+		Variable Naming conventions:
+	
+			* Variable name is prefered to be a camel Casing.
+			* Variable names must begin with a letter or an underscore(_). And the names may contain the letters ‘a-z’ or ’A-Z’ or digits 0-9 
+				as well as the character ‘_’.			Eg: _name
+			* Variable can not start with the digit. 	Eg: 123name
+			* Variables are case sensitive. 			Eg: geeks and Geeks are two different variables
+			* Keywords is not allowed to use as a variable name.
+			* We can declare variable and constant outside of the functions.
+			
+		Variable represented with underscore(_):
+			* Special kind of indentifier know as blank identifier.
+			* Stores the blank value.
+			* You can use any value of any type with the Blank Identifier.
+			* Eg: firstName, _: userFullName();
+		
+		Exported Variable:
+			* The identifier which is allowed to access it from another package is known as the exported identifier. 
+			* The first character of the exported identifier’s name should be in the Unicode upper case letter.
+			* The identifier should be declared in the package block or be a variable, function, type, or method name within that package.
+			* Eg: var ExportedVar = "Exported Value"
+		
+		Declaring a Variable:
+			=> Declare using Var Key Word
+				* Syntax: var variable_name type = expression
+				* In the above syntax, either type or = expression can be omitted, but not both.
+				* There is no such concept of an uninitialized variable in Go language.
+			
+			=> Declare using Var Key Word for Multiple variables
+				* Syntax: var <list of variableName> <type> = <list of values>
+					Eg:  var firstName, lastName string = "Suraj", "Yadav"
+				
+				* If we remove type we can declare multiple variables of different types in same line
+					Eg: var firstName, age, number = "Suraj", 24, 9496554
+			
+			=> Use Short Variable declaration
+				* Syntax: variable_name:= expression
+				* Short declarion can initialize a set of variables by the calling function that returns multiple values.
+				
+				* Short declaration behaves differently in the same lexical block (scope) or in an outer block.
+					-> Same Lexical Block: 
+						:- If a variable is already declared in the same block, := acts like an assignment for that variable.
+					
+					-> Outer Block: 
+						:- If a variable is declared in an outer block, it is ignored, and := will not reassign it. 
+						:- Instead, it will declare a new variable in the current block.
+					
+					-> At Least One New Variable: 
+						:- At least one of the variables on the left side of := must be a new variable.
+						
+		
+Constant in GoLang:
+		-> Once defined can not be modified further.
+		-> Constants are declared like variables but in using a const keyword as a prefix to declare a constant with a specific type. 
+			Eg: const cntName = "INDIA"	/ const cntName string = "INDIA"
+		-> It cannot be declared using “:=” syntax. 
+	
+Go Operators:
+	
+	=> Arithmetic Operator
+		-->  +, -, /, %
+		
+	=> Relational Operator
+		--> ==, !=, >, < 
+		
+	=> Logical Operator
+		--> Logical AND, Logical OR, Logical NOT
+	
+	=> Bitwise Operator
+		--> AND, OR, NOT, Left Shift, Right Shift
+	
+	=> Assignment Operator
+		--> =, -=, +=, /=, %= 
+	
+	=> Misc Operator
+		--> &, *, <-
+	
+Formatting Strings
+	=> fmt.Printf 
+		* %v (represent value of a varable)
+		* %.0f -> (f stands for float and 0 represent the precision of the float value)
+		* %T	-> To get the Type of the variable.
+	
+	=> fmt.Sprintf
+		* Used to generate and store the value of the string in an varable
+	
+	=> fmt.Scan()
+		* Takes the single value input from the user via console.
+		.Scan() 	-> This reads a single word input.
+		.Scanln() 	-> This reads input until a newline is encountered.
+		.Scanf() 	-> This reads formatted input.
+	
+	Accepting the longer input use bufio package
+		Eg: reader := bufio.NewReader(os.Stdin)
+			text, err := reader.ReadString('\n')	// Read the string till the next line. text variable will contain the \n as well which needs to be trimed.
+			text = strings.trim(text, "\n")
+			
+	Multiline Strings
+		We can use (``) to for multiline strings.
+
+Control Statement(if - else condition) 
+
+	-> if .. else if .. else statements
+	-> Does not requires the round bracket around the conditions.
+	-> There is no ternary if in Go, so you’ll need to use a full if statement even for basic conditions.
+	
+Loops in Go
+	
+	1. Simple for Loop
+		
+		Syntax:
+			for initialization; condition; post {
+				// statements....
+			}
+		NOTE: Do not use round brackets else it will throw error.
+		
+	2. For loop as Infinite Loop
+		* We can use break to break it.
+		Syntax:
+			for{
+				// Statement...
+			}
+			
+	3. for loop as while Loop
+		Syntax:
+			for someCondition {
+				// do something ...
+			}
+		* This loops runs till the conditions gets failed.
+	
+	4. Simple range in for loop
+		
+		* For Array
+			for i, j:= range rvariable{
+				// statement..
+			}
+		
+		* For String 
+			for index, chr:= range str{
+				// Statement..
+			}
+		* For Maps
+			for key, value := range map { 
+				// Statement.. 
+			}
+		* for item := range Chnl { 
+				// statements..
+			}
+	
+	IMP Points:
+		-> The curly braces are mandatory in for loop.
+		-> The opening brace should be in the same line in which post statement exists.
+		-> If the array, string, slice, or map is empty, then for loop does not give an error and continue its flow. 
+			Or in other words, if the array, string, slice, or map is nil then the number of iterations of the for loop is zero.
+
+Switch:
+https://www.geeksforgeeks.org/switch-statement-in-go/?ref=next_article
+	-> Two types of Switch statement:
+		* Expression Switch
+			-> with Optional Statement (e.g., variable declaration)
+				Eg: switch optstatement; optexpression { }
+				
+			-> with Optional Expression (if omitted, it defaults to true)
+				Eg: switch { optstatement==2.. }
+		
+		* Type Switch
+		
+	-> In this we do not have to explicity write "break". Go automatically adds the "break" in each case.
+
+Conversion in Go
+	-> strconv package is used to convert the string to float, int ....
+	-> Eg:
+		* b, err := strconv.ParseBool("true")
+		* f, err := strconv.ParseFloat("3.1415", 64)
+		* i, err := strconv.ParseInt("-42", 10, 64)
+		* u, err := strconv.ParseUint("42", 10, 64)
+		
+		* strconv.Atoi(s string) (int, error): 
+			Converts a string to an integer.
+		
+		* strconv.Itoa(i int) string: 
+			Converts an integer to a string
+		
+		* ParseFloat(s string, bitSize int) (float64, error): 
+			Converts a string to a float. The bitSize argument specifies the precision (32 for float32, 64 for float64).
+		
+		* FormatFloat(f float64, fmt byte, prec, bitSize int) string: 
+			Converts a float to a string. The fmt argument specifies the format (e.g., 'f' for decimal), prec specifies the precision, and bitSize specifies 
+			the precision (32 for float32, 64 for float64).
+		
+		* ParseBool(s string) (bool, error): Converts a string to a boolean
+		
+		* FormatBool(b bool) string: Converts a boolean to a string
+
+time in Go
+	-> Functions in Time
+		* presentTime := time.Now()
+		* time.Sleep(1000*time.Milliseconds)
+
+Memory Management in Go
+	* Memory allocation and deallocation happens automatically.
+	* new() and make() are used to allocate a memory for array, stack, etc	
+		-> new()
+			1. Allocates memory for a variable of a specified type and returns a pointer to it, but it does not initialized.
+			2. We will get a memory address
+			3. zeroed storage - you can not put a data
+		
+		-> make()
+			1. Allocates a memory and initialized as well.
+			2. We will get a memory address
+			3. nonzeroed storage - you can put a data
+	* Garbage collection happens automatically.
+			
+
+Functions In Go
+
+	* Normal Functions
+	
+		-> Saves memory, Improve Rediability and save time.
+			Syntax:
+				func function_name(Parameter-list)(Return_type) {
+					// function body...
+				}
+		-> Supports two ways to pass an argument:
+			-> Call by value
+				* By default go uses call by value.
+				* Operation indside function is performed on the Copy of the variable.
+			
+			-> Call by reference
+				* Pointers are used so that changes inside the function reflect in the caller’s variables.
+
+		-> We can have multiple return types from a single function defined in curly braces.
+		-> We can name the return type variable name while defining the function which creates a variable with default value. 
+			No need to return any thing in that case.
+
+	* Variadic Functions in Go:
+
+		-> Variadic functions in Go allow you to pass a variable number of arguments to a function.
+		-> A variadic function accepts multiple arguments of the same type and can be called with any number of arguments, including none.
+		-> Syntax:
+			func functionName(parameters ...Type) ReturnType {
+				// Code
+			}
+			* parameters ...Type indicates that the function can accept a variable number of arguments of type Type.
+			* You can access the arguments within the function as a slice.
+		
+		-> Limitation of Variadic function
+			* Variadic functions can only have one variadic parameter, and it must be the last parameter.
+			* You cannot have multiple variadic parameters in a single function definition.
+
+	* Anonymous function in GO:
+	
+		-> No name is given to this function.
+			
+			Syntax: 
+			func(parameter_list)(return_type) {
+				// code..
+
+				// Use return statement if return_type is given
+				// if return_type is not given, then do not 
+				// use return statement
+				return
+			}()
+		-> We can assign the anonymous function to a variable as well.
+
+	* Methods in GoLang:
+		-> Difference between the function and method is that method has the receiver argument.
+		-> The receiver can be a struct or non-struct type, but both must be in the same package. 
+		-> Methods cannot be created for types defined in other packages, including built-in types like int or string; 
+			otherwise, the compiler will raise an error.
+		-> Methods can not be used as an anonymous object.
+		-> Syntax:
+				func (p Person) display() {}
+		Types:
+			a. Methods with Struct Type Receiver
+			b. Methods with Non-Struct(Custom Type) Type Receiver
+			c. Methods Accepting Pointer Receiver
+			d. Methods Accepting Both Pointer and Value
+		
+
+	* (main) and (init) function in Golang
+		
+		-> main() function
+			1. Special type of function which is the entry point of executable programs.
+			2. Every executable program must contain single main package and main() function.
+		
+		-> init() function
+			1. Same as main function no parameter it accepts nor has a return type.
+			2. Function present in every package and this function is called when package it initialized.
+			3. Can not reference from anywhere.
+			4. We can create multiple init function but they are executed in the order they are created.
+			5. We can keep init function in any package but they are called in lexical file name order.
+			6. init() functions always executes prior to the main function does not depends upon main function.
+			7. main purpose of the init() function is to initialize the global variables that cannot be initialized in the global context.
+	
+	* Defer keyword in GoLang
+		1. It delays the execution of the function or method or anonymous function until nearby function returns.
+		2. We can have multiple defer functions, but they are executed in LIFO order.
+		3. Defer statement are used when the files are closed, when their need is over, or to close the channel.
+		
+Writing to files:
+	-> Use of Go standard library "os"
+	-> os.WriteFile("messageSwitch.txt", []byte(msg), 0644) -> 0644 represent the permission
+
+Error in GoLang
+	-> "errors" is the inbuilt library in Go which can create a new errors. errors.New("Description of the error").
+	-> We do not have try catch block in GoLang but we can check the error using the If else conditions
+
+panic()
+	-> It halts the program execution.
+	-> It can output the error message panic("Can not process further")
+
+Package in Go
+	-> You can access the functions and variables of same package without importing it.
+	-> We can create a multiple package with different names.
+		-> The constraint with the package we have is that one folder can have one package name for all go files.
+		-> You need to create a new subfolder for new sub package.
+		-> The folder name and the package name should be same.
+		
+		-> While importing you need to give the project name(in go.mod file) followed by the package name.
+				Eg: import "github.com/suraj8108/learnGo/newPackage"
+		-> (IMP) In Go you can export the function, variable and constant only if that starts with the uppercase. Else it can not be imported.
+
+
+
+Struct
+	
+	Basic Info 
+		* Struct is like grouping of the different common variables.
+		* Composite data type as it groups the two or more data types.
+		* Eg: type <struct-name First upercase name defines that whether its public or not> struct {}
+		* You can also pass the struct as the parameter as a value or the pointer reference.
+		* It can be termed as lighweight class, does not supports inheritance but supports composition.
+		* While intialization either pass the value one by one in an order or use the key:value pair concept.
+		* We can attach the functions to the struct.
+			func (<variableName> structName) functionName() {}
+	
+	Advantages of Struct:
+		* Encapsulation: Structures allow you to encapsulate related data together, making it easier to manage and modify the data.
+		* Code organization: Structures help to organize code in a logical way, which makes it easier to read and maintain.
+		* Flexibility: Structures allow you to define custom types with their own behavior, making it easier to work with complex data.
+		* Type safety: Structures provide type safety by allowing you to define the type of each field, which helps to prevent errors caused by assigning 
+			the wrong type of value.
+		* Efficiency: Structures in Go are very efficient, both in terms of memory usage and performance.
+		
+	DisAdvantages of Struct:	
+		* Complexity: Structures can make code more complex, especially if the structures have a large number of fields or methods.
+		* Boilerplate code: When defining large structures with many fields, it can be time-consuming to write out all of the field names and types.
+		* Inheritance: Go does not support inheritance, which can make it more difficult to work with large hierarchies of related data.
+		* Immutability: Go structures are mutable by default, which can make it more difficult to enforce immutability in your code.
+	
+	Important Points(NOTE)
+		* When a function is associated to a struct it can be associated either as value or as pointer. 
+			(<variableName> structName) OR (<variableName> *structName). 
+		* There no much difference between them its just that operation performed on struct field in pointer one will do the changes in that 
+		    original struct but same wont happen with the value one via that struct
+		* We can not call this function directly. As it has become part os struct so similar to class we need create a struct and then we can call this function 
+	
+	Nested Structure
+		* Struct inside another struct.
+	
+	
+	Function Used to create a new Struct (Constructor) -:
+		This function accepts the list of parameter of struct and return the new struct pointer.
+		Generally the Contructor name is given as "New" and it may contain the validation logic.
+	
+	Package in Struct:
+		We can export the struct outside of the package by keeping the fist letter of the struct as Uppercase.
+		NOTE: Just keeping the first letter of struct as Upper case does not makes the field of struct as public. 
+			  We can keep the few fields of struct as accessible outside of package and few as a private by following the upper case logic.
+	
+	Struct Embedding (In Java it refers to as an Composition):
+		The child struct has the abilities of the parent struct like its fields and methods access.
+		Egs:
+			type Admin struct {						type Admin struct {
+				fname	string							email 	string
+				lname	string							pass 	string
+				birthDate string						user 	User
+			}										}
+	
+	Struct Tags:
+		-> Its a meta data that we can add to the field of struct which names the field while exporting to the JSON.
+		Eg: type Note struct {
+				Title string `json:"title"`
+			}
+	Exporting Struct to file
+		-> We can use the json.Marshal function to convert the Struct to byte stream.
+		-> While transforring the data from struct to file we need to keep all the field of struct to be Public(Uppercase) in order to export it. As the "os" library in the 
+		   Other package tries to access the field of struct.
+	
+
+Custom Type in Go
+	-> We can create alias to the built in type and use it.
+	Eg: type str string;
+		var name str;		//Here str acts like an alias for string.
+	-> The main use case of this is to extend the builtin types and add a new functions to it.
+		Eg func (str) printMyString() {}
